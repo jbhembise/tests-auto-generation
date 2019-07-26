@@ -1,0 +1,36 @@
+### GRADLE ###
+build/
+.gradle/
+.build-script/
+
+### MAVEN ###
+target/
+
+### STS ###
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### OSX ###
+.DS_Store
+
+### JWalk ###
+JWalkLicense.txt
+
+### Misc ###
+out/

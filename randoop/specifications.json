@@ -1,0 +1,44 @@
+[
+  {
+    "operation": {
+      "classname": "jbhembise.testauto.example1.Calculator",
+      "name": "substract",
+      "parameterTypes": [
+        "int"
+      ]
+    },
+    "identifiers": {
+      "parameters": [ "n" ]
+    },
+    "pre": [
+      {
+        "description": "argument must be positive",
+        "guard": {
+          "condition": "n > 0",
+          "description": "argument must be positive"
+        }
+      }
+    ]
+  },
+  {
+    "operation": {
+      "classname": "jbhembise.testauto.example1.Calculator",
+      "name": "add",
+      "parameterTypes": [
+        "int"
+      ]
+    },
+    "identifiers": {
+      "parameters": [ "n" ]
+    },
+    "pre": [
+      {
+        "description": "argument must be positive",
+        "guard": {
+          "condition": "n > 0",
+          "description": "argument must be positive"
+        }
+      }
+    ]
+  }
+]
