@@ -65,6 +65,7 @@ For executing all generated test suites :
 - Gradle < 5 pour utiliser le GradleBuilder, sinon erreur sur le "leftShift()"
 - Maven
 - JDK 1.8 (ne fonctionne pas avec le JDK 11 en l'occurrence)
+- Au moins une dépendance en "compile" dans `build.gradle` (sinon, on a une NullPointerException)
 
 ### Command line
 
@@ -72,9 +73,14 @@ For generating test suites for specific class :
 
 `./gradlew dspot -Ptestclass=jbhembise.testauto.example1.Calculator`
 
+For executing all generated test suites :
+
+`./gradlew clean dspotTest`
+
 ### Résultats
 
 - Difficultés du setup Gradle (nécessité d'avoir un bloc `buildscript` par ex)
+- Des reliquats de Maven en dur dans plusieurs classes dont `DSpotCompiler`
 
 ## JWalk
 
