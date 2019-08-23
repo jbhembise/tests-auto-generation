@@ -1,0 +1,4 @@
+Test class that has been amplified: jbhembise.testauto.example1.CalculatorTest
+The original test suite kills 3 mutants
+The amplification results with 5 new tests
+it kills 5 more mutants

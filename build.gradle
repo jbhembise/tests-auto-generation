@@ -16,6 +16,7 @@ targetCompatibility = 1.8
 
 testSets {
     evosuiteTest
+    jwalkTest
     randoopTest
     dspotTest
 }
@@ -27,17 +28,17 @@ repositories {
 
 dependencies {
     // Evosuite
-    testImplementation group: 'org.evosuite', name: 'evosuite-master', version: "${evosuiteVersion}"
-    testImplementation group: 'org.evosuite', name: 'evosuite-standalone-runtime', version: "${evosuiteVersion}"
-
+    evosuiteTestImplementation group: 'org.evosuite', name: 'evosuite-master', version: "${evosuiteVersion}"
+    evosuiteTestImplementation group: 'org.evosuite', name: 'evosuite-standalone-runtime', version: "${evosuiteVersion}"
+    
     // JWalk
-    testImplementation files('jwalk/JWalk11.jar')
+    jwalkTestImplementation files('jwalk/JWalk11.jar')
 
     // Randoop
-    testImplementation files('randoop/randoop-all-4.1.2.jar')
+    randoopTestImplementation files('randoop/randoop-all-4.1.2.jar')
 
     // Dspot
-    testImplementation files('dspot/dspot-2.1.1-jar-with-dependencies.jar')
+    dspotTestImplementation files('dspot/dspot-2.1.1-jar-with-dependencies.jar')
 
     // Lombok
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: "${lombokVersion}"
@@ -47,12 +48,8 @@ dependencies {
     testImplementation group: 'junit', name: 'junit', version: "${junitVersion}"
 }
 
-task evosuiteClean {
-    delete "${projectDir}/src/evosuiteTest/java"
-}
-
-task evosuite(dependsOn: ['assemble', 'evosuiteClean'], type: JavaExec) {
-    classpath = sourceSets.test.compileClasspath
+task evosuite(dependsOn: 'assemble', type: JavaExec) {
+    classpath = sourceSets.evosuiteTest.compileClasspath
     main = 'org.evosuite.EvoSuite'
     args = [
             '-target', 'build/classes/java/main',
@@ -63,19 +60,40 @@ task evosuite(dependsOn: ['assemble', 'evosuiteClean'], type: JavaExec) {
         args(testclass)
     }
 }
-
+    
 task evosuiteHelp(dependsOn: 'assemble', type: JavaExec) {
-    classpath = sourceSets.test.compileClasspath
+    classpath = sourceSets.evosuiteTest.compileClasspath
     main = 'org.evosuite.EvoSuite'
     args = ['-help']
 }
 
-task randoopClean {
-    delete "${projectDir}/src/randoopTest/java"
+task jwalkCopyLicense(dependsOn: 'assemble', type: Copy) {
+    from file("$projectDir/JWalkLicense.txt")
+    into file("$buildDir/classes/java/main")
 }
 
-task randoop(dependsOn: ['assemble', 'randoopClean'], type: JavaExec) {
+task jwalkUI(dependsOn: 'jwalkCopyLicense', type: JavaExec) {
+    classpath = sourceSets.jwalkTest.compileClasspath
+    main = 'org.jwalk.tool.JWalkTester'
+    workingDir = file("$buildDir/classes/java/main")
+    //args('-Xms1024m')
+    //args('-Xmx2048m')
+}
+
+task jwalk(dependsOn: 'jwalkCopyLicense', type: JavaExec) {
     classpath = sourceSets.test.compileClasspath
+    main = 'org.jwalk.tool.JWalkUtility'
+    workingDir = file("$buildDir/classes/java/main")
+    if (project.hasProperty('testclass')) {
+        args(testclass)
+        args('algebra')
+        args('explore')
+        args(3)
+    }
+}
+
+task randoop(dependsOn: 'assemble', type: JavaExec) {
+    classpath = sourceSets.randoopTest.compileClasspath
     main = 'randoop.main.Main'
     args = [
             'gentests',
@@ -93,47 +111,20 @@ task randoop(dependsOn: ['assemble', 'randoopClean'], type: JavaExec) {
     }
 }
 
-task jwalkUI(dependsOn: 'assemble', type: JavaExec) {
-    classpath = sourceSets.test.compileClasspath
-    main = 'org.jwalk.tool.JWalkTester'
-    workingDir = file("$buildDir/classes/java/main")
-}
-
-task jwalkCopyLicense(dependsOn: 'assemble', type: Copy) {
-    from file("$projectDir/JWalkLicense.txt")
-    into file("$buildDir/classes/java/main")
-}
-
-task jwalk(dependsOn: 'jwalkCopyLicense', type: JavaExec) {
-    classpath = sourceSets.test.compileClasspath
-    main = 'org.jwalk.tool.JWalkUtility'
-    workingDir = file("$buildDir/classes/java/main")
-    if (project.hasProperty('testclass')) {
-        args(testclass)
-        args('algebra')
-        args('explore')
-        args(3)
-    }
-}
-
-task dspotClean {
-    delete "${projectDir}/src/dspotTest/java"
-}
-
-task dspot(dependsOn: ['compileTestJava', 'dspotClean'], type: JavaExec) {
-    classpath = sourceSets.test.compileClasspath
+task dspot(dependsOn: 'compileTestJava', type: JavaExec) {
+    classpath = sourceSets.dspotTest.compileClasspath
     main = 'eu.stamp_project.Main'
     args = [
             '-p', './dspot/dspot.properties',
             '--automatic-builder', 'GradleBuilder',
-            '--descartes'
+            '--descartes' // Enable the descartes engine for Pit Mutant Score Selector (instead of Gregor)
     ]
     if (project.hasProperty('testclass')) {
         args('-i')
-        args(1)
+        args(3) // number of iterations of amplifications
         args('-t')
         args(testclass.substring(0, testclass.lastIndexOf(".")) + ".*")
-        //args('-a')
-        //args('MethodGeneratorAmplifier')
+        args('-a')
+        args('MethodGeneratorAmplifier:TestMethodCallAdder:TestMethodCallRemover:TestDataMutator')
     }
 }

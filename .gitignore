@@ -29,6 +29,9 @@ nbdist/
 ### OSX ###
 .DS_Store
 
+### Evosuite ###
+evosuite-report/
+
 ### JWalk ###
 JWalkLicense.txt
 

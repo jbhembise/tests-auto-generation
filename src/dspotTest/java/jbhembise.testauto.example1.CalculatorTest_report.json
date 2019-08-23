@@ -1,0 +1,72 @@
+{
+  "nbMutantKilledOriginally": 0,
+  "name": "jbhembise.testauto.example1.CalculatorTest",
+  "nbOriginalTestCases": 1,
+  "testCases": [
+    {
+      "name": "divide_should_work_mg4",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "void",
+          "lineNumber": 30,
+          "locationMethod": "multiply"
+        }
+      ]
+    },
+    {
+      "name": "divide_should_work_mg2",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "void",
+          "lineNumber": 14,
+          "locationMethod": "clear"
+        }
+      ]
+    },
+    {
+      "name": "divide_should_work",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "void",
+          "lineNumber": 34,
+          "locationMethod": "divide"
+        }
+      ]
+    },
+    {
+      "name": "divide_should_work_mg1",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "void",
+          "lineNumber": 22,
+          "locationMethod": "add"
+        }
+      ]
+    },
+    {
+      "name": "divide_should_work_mg5",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "void",
+          "lineNumber": 26,
+          "locationMethod": "substract"
+        }
+      ]
+    }
+  ]
+}
