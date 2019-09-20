@@ -1,5 +1,0 @@
-DSpot encountered 2 input error(s).
-The given value does not match with any value of the corresponding options.
-eu.stamp_project.utils.options.AmplifierEnum does not have corresponding value to TestMethodCallAdder
-The given value does not match with any value of the corresponding options.
-eu.stamp_project.utils.options.AmplifierEnum does not have corresponding value to TestMethodCallRemover

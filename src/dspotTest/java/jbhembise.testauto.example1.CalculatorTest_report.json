@@ -4,41 +4,41 @@
   "nbOriginalTestCases": 1,
   "testCases": [
     {
-      "name": "divide_should_work_mg4",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 2,
+      "name": "divide_should_work_literalMutationNumber8_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
       "nbMutantKilled": 1,
       "mutantsKilled": [
         {
           "ID": "void",
           "lineNumber": 30,
-          "locationMethod": "multiply"
+          "locationMethod": "divide"
         }
       ]
     },
     {
-      "name": "divide_should_work_mg2",
+      "name": "divide_should_work_mg1_add322_mg2515",
       "nbAssertionAdded": 4,
       "nbInputAdded": 2,
       "nbMutantKilled": 1,
       "mutantsKilled": [
         {
           "ID": "void",
-          "lineNumber": 14,
-          "locationMethod": "clear"
+          "lineNumber": 26,
+          "locationMethod": "multiply"
         }
       ]
     },
     {
-      "name": "divide_should_work",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 0,
+      "name": "divide_should_work_mg5_mg81",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
       "nbMutantKilled": 1,
       "mutantsKilled": [
         {
           "ID": "void",
-          "lineNumber": 34,
-          "locationMethod": "divide"
+          "lineNumber": 10,
+          "locationMethod": "clear"
         }
       ]
     },
@@ -50,7 +50,7 @@
       "mutantsKilled": [
         {
           "ID": "void",
-          "lineNumber": 22,
+          "lineNumber": 18,
           "locationMethod": "add"
         }
       ]
@@ -63,7 +63,7 @@
       "mutantsKilled": [
         {
           "ID": "void",
-          "lineNumber": 26,
+          "lineNumber": 22,
           "locationMethod": "substract"
         }
       ]

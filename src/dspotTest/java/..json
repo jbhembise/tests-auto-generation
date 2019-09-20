@@ -2,7 +2,19 @@
   "classTimes": [
     {
       "fullQualifiedName": "jbhembise.testauto.example1.CalculatorTest",
-      "timeInMs": 41417
+      "timeInMs": 63680
+    },
+    {
+      "fullQualifiedName": "jbhembise.testauto.example2.DiscountCalculatorTest",
+      "timeInMs": 55860
+    },
+    {
+      "fullQualifiedName": "jbhembise.testauto.example3.StackTest",
+      "timeInMs": 74465
+    },
+    {
+      "fullQualifiedName": "jbhembise.testauto.example6.UserTest",
+      "timeInMs": 70174
     }
   ],
   "projectName": "."

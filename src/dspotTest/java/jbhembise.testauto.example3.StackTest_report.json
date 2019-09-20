@@ -1,0 +1,74 @@
+{
+  "nbMutantKilledOriginally": 0,
+  "name": "jbhembise.testauto.example3.StackTest",
+  "nbOriginalTestCases": 1,
+  "testCases": [
+    {
+      "name": "push_object_into_stack_must_increment_size_by_1_mg1",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "void",
+          "lineNumber": 34,
+          "locationMethod": "clear"
+        }
+      ]
+    },
+    {
+      "name": "push_object_into_stack_must_increment_size_by_1_mg3",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "void",
+          "lineNumber": 26,
+          "locationMethod": "pop"
+        }
+      ]
+    },
+    {
+      "name": "push_object_into_stack_must_increment_size_by_1",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "false",
+          "lineNumber": 43,
+          "locationMethod": "isEmpty"
+        },
+        {
+          "ID": "true",
+          "lineNumber": 43,
+          "locationMethod": "isEmpty"
+        },
+        {
+          "ID": "true",
+          "lineNumber": 47,
+          "locationMethod": "isFull"
+        },
+        {
+          "ID": "void",
+          "lineNumber": 18,
+          "locationMethod": "push"
+        }
+      ]
+    },
+    {
+      "name": "push_object_into_stack_must_increment_size_by_1_mg2_remove103_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "null",
+          "lineNumber": 39,
+          "locationMethod": "last"
+        }
+      ]
+    }
+  ]
+}

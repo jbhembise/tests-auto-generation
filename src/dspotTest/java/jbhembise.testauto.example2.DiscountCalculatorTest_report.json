@@ -1,0 +1,33 @@
+{
+  "nbMutantKilledOriginally": 0,
+  "name": "jbhembise.testauto.example2.DiscountCalculatorTest",
+  "nbOriginalTestCases": 1,
+  "testCases": [
+    {
+      "name": "calculatePercentage_should_return_0_under_10_items",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "1",
+          "lineNumber": 19,
+          "locationMethod": "calculatePercentage"
+        }
+      ]
+    },
+    {
+      "name": "calculatePercentage_should_return_0_under_10_itemslitNum9",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "0",
+          "lineNumber": 19,
+          "locationMethod": "calculatePercentage"
+        }
+      ]
+    }
+  ]
+}
